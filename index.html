@@ -74,13 +74,12 @@
 
         .streep {
             padding: 7px;
+            margin-left: 10px;
             opacity: 0.5;
             color: #a00000;
         }
     </style>
-
 </head>
-
 <body cz-shortcut-listen="true">
     <div id="time">19:14:58</div>
     <div id="date">Monday 9 DEC</div>
@@ -93,7 +92,7 @@
         }
 
         function startTime() {
-            var today = new Date();
+          var today = new Date();
             today.setHours(today.getHours() + 2);
             var h = today.getHours();
             var m = today.getMinutes();
@@ -133,29 +132,73 @@
             <p>Reddit:</p>
             <p>Programming:</p>
             <p>Andere:</p>
+            <p>Local:</p>
         </div>
 
         <div id="Link">
-            <p><a href="https://www.facebook.com/">Facebook</a><span class="streep">-</span><a href="https://outlook.live.com">Outlook</a><span class="streep">-</span><a href="https://twitter.com/">Twitter</a></p>
-            <p><a href="https://www.google.com">Search</a><span class="streep">-</span><a href="https://drive.google.com/drive/my-drive">Drive</a><span class="streep">-</span><a href="https://translate.google.com/?hl=nl">Translate</a></p>
-            <p><a href="https://www.youtube.com/?hl=nl">Youtube</a><span class="streep">-</span><a href="https://www.netflix.com/browse">Netflix</a><span class="streep">-</span><a href="https://www.imdb.com/">IMDb</a></p>
-            <p><a href="https://www.amazon.de/">Amazon</a><span class="streep">-</span><a href="http://www.ibood.com/be/nl/">iBood</a><span class="streep">-</span><a href="https://nl.aliexpress.com/">Aliexpress</a></p>
-            <p><a href="https://www.belfius.be">Belfius</a><span class="streep">-</span><a href="https://www.keytradebank.be/">Keytrade</a><span class="streep">-</span><a href="https://secure.hellobank.be/nl/index-NL?axes1=nl">Hello Bank</a>
-                <span class="streep">-</span><a href="https://www.binance.com">Binance</a></p>
-            <p><a href="https://boards.4chan.org/wg/">/wg</a><span class="streep">-</span><a href="https://boards.4channel.org/wsg/">/wsg</a><span class="streep">-</span><a href="https://boards.4channel.org/gif/">/gif</a><span class="streep">-</span><a href="https://boards.4chan.org/b/">/b/</a>
-                <span class="streep">-</span><a href="https://boards.4channel.org/g/">/g</a></p>
-            <p><a href="https://www.reddit.com/">Frontpage</a><span class="streep">-</span><a href="https://www.reddit.com/r/thedivision/">TheDivision</a><span class="streep">-</span><a href="https://www.reddit.com/r/BattlefieldV/">BattlefieldV</a>
-                <span class="streep">-</span><a href="https://www.reddit.com/me/m/programming/">Programming</a></p>
-            <p><a href="https://www.udemy.com/home/my-courses/learning/">Udemy</a><span class="streep">-</span><a href="https://www.w3schools.com/">W3Schools</a><span class="streep">-</span><a href="https://stackoverflow.com/">Stackoverflow</a><span class="streep">-</span>
-                <a href="https://users.hogent.be/de-wolf/csharp/">Cursus</a>
+            <p>
+              <a href="https://www.facebook.com/">Facebook</a><span class="streep">-</span>
+              <a href="https://twitter.com/">Twitter</a><span class="streep">-</span>
+              <a href="https://outlook.live.com">Outlook</a><span class="streep">-</span>
+              <a href="https://mailfence.com/nl/">Mailfence</a>
             </p>
-            <p><a href="https://chamilo.avondschool.be/">Chamilo</a></p>
-            <p><a href="https://www.pluralsight.com/">Pluralsight</a></p><a href="https://www.pluralsight.com/">
-            </a></div><a href="https://www.pluralsight.com/">
+            <p>
+              <a href="https://www.google.com">Search</a><span class="streep">-</span>
+              <a href="https://www.google.be/maps">Maps</a><span class="streep">-</span>
+              <a href="https://translate.google.com/?hl=nl">Translate</a>
+            </p>
+            <p>
+              <a href="https://www.youtube.com/?hl=nl">Youtube</a><span class="streep">-</span>
+              <a href="https://www.netflix.com/browse">Netflix</a><span class="streep">-</span>
+              <a href="https://www.imdb.com/">IMDb</a>
+            </p>
+            <p>
+              <a href="https://www.amazon.de/?language=nl_NL">Amazon</a><span class="streep">-</span>
+              <a href="http://www.ibood.com/be/nl/">iBood</a><span class="streep">-</span>
+              <a href="https://nl.aliexpress.com/">Aliexpress</a>
+            </p>
+            <p>
+              <a href="https://www.belfius.be">Belfius</a><span class="streep">-</span>
+              <a href="https://www.keytradebank.be/">Keytrade</a><span class="streep">-</span>
+              <a href="https://secure.hellobank.be/nl/index-NL?axes1=nl">Hello Bank</a><span class="streep">-</span>
+              <a href="https://www.binance.com">Binance</a>
+            </p>
+            <!--<p>
+            <a href="https://boards.4chan.org/wg/">/wg</a><span class="streep">-</span>
+            <a href="https://boards.4channel.org/wsg/">/wsg</a><span class="streep">-</span>
+            <a href="https://boards.4channel.org/gif/">/gif</a><span class="streep">-</span>
+            <a href="https://boards.4chan.org/b/">/b/</a><span class="streep">-</span>
+            <a href="https://boards.4channel.org/g/">/g</a>
+          </p>-->
+            <p>
+              <a href="https://www.reddit.com/r/ProgrammerHumor/">ProgHumor</a><span class="streep">-</span>
+              <a href="https://www.reddit.com/r/BattlefieldV/">BattlefieldV</a><span class="streep">-</span>
+              <a href="https://www.reddit.com/r/privacy/">Privacy</a>
+            </p>
+            <p>
+              <a href="https://ibamaflex.hogent.be/Main.aspx">iBaMaFlex!</a><span class="streep">-</span>
+              <a href="https://chamilo.hogent.be/">Chamilo</a><span class="streep">-</span>
+              <a href="https://www.meetup.com">Meetup</a>
+            </p>
+            <p>
+              <a href="https://github.com">Github</a><span class="streep">-</span>
+              <a href="https://stackoverflow.com/">Stackoverflow</a>
+            </p>
+            <p>
+              <a href="https://www.udemy.com/home/my-courses/learning/">Udemy</a><span class="streep">-</span>
+              <a href="https://www.pluralsight.com/">Pluralsight</a>
+            </p>
+          <p>
+            <a href="http://192.168.0.10">OctoPi</a><span class="streep">-</span>
+            <a href="http://192.168.0.22:8112/">Deluge</a><span class="streep">-</span>
+            <a href="http://192.168.0.10/admin/index.php">PiHole</a><span class="streep">-</span>
+            <a href="https://192.168.0.15">Synology</a>
+          </p>
+          <p>
+            <a href="https://privacytools.io">PrivacyTools</a><span class="streep">-</span>
 
+          </p>
+          </div>
             <div id="rechts">
-
             </div>
-        </a></div><a href="https://www.pluralsight.com/">
-
-</a></body>
+</body>
