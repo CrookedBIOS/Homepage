@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<head>
+    <title>Homepage</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        #Naam {
+            text-align: right;
+            color: white;
+            font-size: 20px;
+            float: left;
+            font-weight: bolder;
+            padding-right: 10px
+        }
+
+        #Link {
+            text-align: left;
+            margin-left: 160px;
+        }
+
+        #alles {
+            margin: -25px 0px 0px 70px;
+            font-size: 20px;
+            letter-spacing: 2px;
+            float: left;
+            line-height: 25px;
+            padding: 10px;
+            width: 1000px;
+        }
+
+        #time {
+            text-align: center;
+            color: white;
+            font-size: 100px;
+            margin-top: 25px;
+        }
+
+        #date {
+            text-align: center;
+            color: white;
+            font-size: 30px;
+            margin-top: 20px;
+            margin: auto;
+            padding: 10px;
+            border-top: 1px solid white;
+            width: 200px;
+        }
+
+        #rechts {
+            float: right
+        }
+
+        a {
+            font-weight: 900;
+            text-decoration: none;
+            color: #a00000;
+        }
+
+        .streep {
+            padding: 7px;
+            opacity: 0.5;
+            color: #a00000;
+        }
+    </style>
+
+</head>
+
+<body cz-shortcut-listen="true">
+    <div id="time">19:14:58</div>
+    <div id="date">Monday 9 DEC</div>
+    <script>
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        function startTime() {
+            var today = new Date();
+            today.setHours(today.getHours() + 2);
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            // add a zero in front of numbers<10
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+            t = setTimeout(function() {
+                startTime()
+            }, 500);
+        }
+
+
+        function datum() {
+            var today = new Date();
+            var array = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OKT", "NOV", "DEC"];
+            var d = today.getDate();
+            var m = today.getMonth();
+            var dagArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var w = today.getDay();
+            var weekdag = dagArray[w];
+            var maand = array[m];
+            document.getElementById('date').innerHTML = weekdag + " " + d + " " + maand;
+        }
+        startTime();
+        datum();
+    </script>
+    <div id="alles">
+        <div id="Naam">
+            <p>Social:</p>
+            <p>Google:</p>
+            <p>Media:</p>
+            <p>Shopping:</p>
+            <p>Banking:</p>
+            <p>4Chan:</p>
+            <p>Reddit:</p>
+            <p>Programming:</p>
+            <p>Andere:</p>
+        </div>
+
+        <div id="Link">
+            <p><a href="https://www.facebook.com/">Facebook</a><span class="streep">-</span><a href="https://outlook.live.com">Outlook</a><span class="streep">-</span><a href="https://twitter.com/">Twitter</a></p>
+            <p><a href="https://www.google.com">Search</a><span class="streep">-</span><a href="https://drive.google.com/drive/my-drive">Drive</a><span class="streep">-</span><a href="https://translate.google.com/?hl=nl">Translate</a></p>
+            <p><a href="https://www.youtube.com/?hl=nl">Youtube</a><span class="streep">-</span><a href="https://www.netflix.com/browse">Netflix</a><span class="streep">-</span><a href="https://www.imdb.com/">IMDb</a></p>
+            <p><a href="https://www.amazon.de/">Amazon</a><span class="streep">-</span><a href="http://www.ibood.com/be/nl/">iBood</a><span class="streep">-</span><a href="https://nl.aliexpress.com/">Aliexpress</a></p>
+            <p><a href="https://www.belfius.be">Belfius</a><span class="streep">-</span><a href="https://www.keytradebank.be/">Keytrade</a><span class="streep">-</span><a href="https://secure.hellobank.be/nl/index-NL?axes1=nl">Hello Bank</a>
+                <span class="streep">-</span><a href="https://www.binance.com">Binance</a></p>
+            <p><a href="https://boards.4chan.org/wg/">/wg</a><span class="streep">-</span><a href="https://boards.4channel.org/wsg/">/wsg</a><span class="streep">-</span><a href="https://boards.4channel.org/gif/">/gif</a><span class="streep">-</span><a href="https://boards.4chan.org/b/">/b/</a>
+                <span class="streep">-</span><a href="https://boards.4channel.org/g/">/g</a></p>
+            <p><a href="https://www.reddit.com/">Frontpage</a><span class="streep">-</span><a href="https://www.reddit.com/r/thedivision/">TheDivision</a><span class="streep">-</span><a href="https://www.reddit.com/r/BattlefieldV/">BattlefieldV</a>
+                <span class="streep">-</span><a href="https://www.reddit.com/me/m/programming/">Programming</a></p>
+            <p><a href="https://www.udemy.com/home/my-courses/learning/">Udemy</a><span class="streep">-</span><a href="https://www.w3schools.com/">W3Schools</a><span class="streep">-</span><a href="https://stackoverflow.com/">Stackoverflow</a><span class="streep">-</span>
+                <a href="https://users.hogent.be/de-wolf/csharp/">Cursus</a>
+            </p>
+            <p><a href="https://chamilo.avondschool.be/">Chamilo</a></p>
+            <p><a href="https://www.pluralsight.com/">Pluralsight</a></p><a href="https://www.pluralsight.com/">
+            </a></div><a href="https://www.pluralsight.com/">
+
+            <div id="rechts">
+
+            </div>
+        </a></div><a href="https://www.pluralsight.com/">
+
+</a></body>
