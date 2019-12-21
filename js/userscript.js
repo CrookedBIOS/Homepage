@@ -1,7 +1,4 @@
 $(document).ready(function() {
-
-    document.getElementsByClassName('body')[0].style.backgroundImage = 'url(\'images/' + Math.floor(Math.random() * 15) + '.jpg\')';
-
     function checkTime(i) {
         if (i < 10) {
             i = "0" + i;
@@ -20,7 +17,7 @@ $(document).ready(function() {
         s = checkTime(s);
 
         document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-        t = setTimeout(function() {
+        t = setTimeout(function () {
             startTime()
         }, 500);
     }
@@ -40,6 +37,7 @@ $(document).ready(function() {
         document.getElementById('dayDate').innerHTML = d.toString();
         document.getElementById('monthDate').innerHTML = maand;
     }
+
     startTime();
     datum();
 
@@ -90,11 +88,13 @@ $(document).ready(function() {
 
     function getWeather() {
         fetch('https://api.openweathermap.org/data/2.5/weather?id=2797656&appid=1c69c5ca7aa5fc91df7b97a37ceec6d1')
-            .then(function(resp) { return resp.json() }) // Convert data to json
-            .then(function(data) {
+            .then(function (resp) {
+                return resp.json()
+            }) // Convert data to json
+            .then(function (data) {
                 drawWeather(data);
             })
-            .catch(function() {
+            .catch(function () {
                 console.log('Error fetching openweather API data')
             });
 
@@ -141,10 +141,10 @@ $(document).ready(function() {
     function drawForecast(f) {
         var one = -1;
         var two = -1; //+8
-        for (var i = 0; i < f.list.length; i++){
-            if (f.list[i].dt_txt.endsWith("15:00:00")){
+        for (var i = 0; i < f.list.length; i++) {
+            if (f.list[i].dt_txt.endsWith("15:00:00")) {
                 one = i;
-                two = i+8;
+                two = i + 8;
                 break;
             }
         }
@@ -155,28 +155,31 @@ $(document).ready(function() {
         document.getElementById('forecast_dayafter_weather').className = getWeatherType(f.list[two].weather[0].icon);
         document.getElementById('forecast_dayafter_date').innerHTML = transferUnixDate(f.list[two].dt);
     }
+
     getWeather();
     getForecast();
 
     $(document).ready(function () {
 
-        $(".block").mouseenter(function () {
-            if ($(window).width()>=1200) {
+        var $block = $(".block");
+
+        $block.mouseenter(function () {
+            if ($(window).width() >= 1200) {
                 $(this).children('h1').animate({
                     top: '20%',
                     opacity: '0.5'
-                })
+                });
                 $(this).children('.hidden').fadeIn(400);
-            };
+            }
         });
-        $(".block").mouseleave(function () {
-            if ($(window).width()>=1200) {
+        $block.mouseleave(function () {
+            if ($(window).width() >= 1200) {
                 $(this).children('h1').animate({
                     top: '40%',
                     opacity: '1.0'
-                })
+                });
                 $(this).children('.hidden').fadeOut(500);
-            };
+            }
         });
     });
 });
