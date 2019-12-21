@@ -1,7 +1,6 @@
 * {
     -moz-user-select: none;
-    -moz-transform: translateZ(0);
-    transform: translateZ(0);
+    scroll-behavior: smooth;
     -webkit-user-select: none;
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
