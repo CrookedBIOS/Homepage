@@ -3,171 +3,15 @@
     <title>Homepage</title>
     <meta charset="utf-8">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/weather-icons.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/userstyle.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/userscript.js" type="text/javascript"></script>
 
-    <style type="text/css">
-        * {
-            box-sizing: border-box;
-            font-family: 'Ubuntu', sans-serif;
-        }
-
-        #temperature i {
-            font-size: 40px;
-            color: white;
-        }
-
-        #otherWeather i{
-            font-size: 20px;
-            color: white;
-            margin: 30px 3px;
-        }
-
-        #otherWeather span:first-of-type{
-            border-right: 2px solid black;
-            padding-right: 10px;
-        }
-
-        #otherWeather span:nth-of-type(2){
-            border-right: 2px solid black;
-            padding-right: 10px;
-        }
-        #sunrise {
-            text-align: center;
-            margin: auto auto 20px;
-        }
-        #sunrise i:first-of-type {
-            border-right: 2px solid black;
-            padding-right: 10px;
-        }
-
-        #forecast {
-            border-top: 2px solid black;
-            overflow: hidden;
-            text-align: center;
-            margin: auto auto 20px;
-        }
-
-        #forecast_tomorrow {
-            display: inline-block;
-            margin-right: 30px;
-        }
-
-        #forecast_dayafter {
-            display: inline-block;
-        }
-
-        #forecast i{
-            font-size: 20px;
-        }
-
-        body {
-            background-image: url('Rocket.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-        }
-
-        .name {
-            text-align: right;
-            color: white;
-            padding-right: 15px;
-            display: inline-block;
-            width: 120px;
-        }
-
-        .links {
-            display: inline-block;
-        }
-
-        .left {
-            margin: 0px 0px 0px 70px;
-            font-size: 18px;
-            letter-spacing: 1px;
-            float: left;
-            background-color: rgba( 0, 0, 0, 0.4);
-            border-radius: 5px;
-            padding: 10px 50px;
-            font-weight: bolder;
-        }
-
-        #time {
-            text-align: center;
-            color: white;
-            font-size: 100px;
-            margin-top: 25px;
-        }
-
-        #date {
-            text-align: center;
-            color: white;
-            font-size: 20px;
-            padding: 10px;
-            border-top: 1px solid white;
-            width: 250px;
-            margin: 20px auto 20px;
-        }
-
-        #right{
-            margin: 0px 70px 0px 0px;
-            letter-spacing: 2px;
-            float: right;
-            background-color: rgba( 0, 0, 0, 0.4);
-            border-radius: 5px;
-            padding: 10px 50px;
-            font-weight: bolder;
-            width: auto;
-            height: auto;
-        }
-
-        #right {
-            color: white;
-        }
-        #temperature {
-            font-size: 30px;
-            margin: auto;
-            text-align: center;
-        }
-        #celsius {
-            margin-left: 10px;
-        }
-        .wi-celsius {
-            margin-right: 10px;
-        }
-
-        #dayDate{
-            font-size: 25px;
-        }
-
-        a {
-            text-decoration: none;
-            color:  #000000;
-        }
-
-        .streep {
-            padding: 5px;
-            margin-left: 10px;
-            opacity: 0.6;
-            color: #000000;
-        }
-        #searchDiv {
-            width: 800px;
-            margin: auto auto 30px;
-        }
-        #searchInput {
-            margin: auto;
-            width: 800px;
-            padding: 8px 20px;
-            border-radius: 10px;
-            font-size: 18px;
-            border: none;
-        }
-    </style>
 </head>
-<body cz-shortcut-listen="true">
+<body cz-shortcut-listen="true" class="body">
     <div id="time">19:14:58</div>
 
     <div id="date" onclick="">
@@ -175,158 +19,6 @@
         <span id="dayDate">8</span>
         <span id="monthDate">Dec</span>
     </div>
-    <script>
-        function checkTime(i) {
-            if (i < 10) {
-                i = "0" + i;
-            }
-            return i;
-        }
-
-        function startTime() {
-          var today = new Date();
-            today.setHours(today.getUTCHours() + 1);
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-            // add a zero in front of numbers<10
-            m = checkTime(m);
-            s = checkTime(s);
-
-            document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-            t = setTimeout(function() {
-                startTime()
-            }, 500);
-        }
-
-
-        function datum() {
-            var today = new Date();
-            var array = ["January", "February", "March", "April", "May", "June", "Juli", "August", "September", "October", "November", "December"];
-            var d = today.getDate();
-            var m = today.getMonth();
-            var dagArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            var w = today.getDay();
-            var weekdag = dagArray[w];
-            var maand = array[m];
-            startTime();
-            document.getElementById('dateDate').innerHTML = weekdag;
-            document.getElementById('dayDate').innerHTML = d.toString();
-            document.getElementById('monthDate').innerHTML = maand;
-        }
-        startTime();
-        datum();
-
-        function getWeatherType(icon) {
-            switch (icon) {
-                case "01d":
-                    return "wi wi-day-sunny";
-                case "02d":
-                    return "wi wi-day-sunny-overcast";
-                case "03d":
-                    return "wi wi-day-cloudy";
-                case "04d":
-                    return "wi wi-cloudy";
-                case "09d":
-                    return "wi wi-day-showers";
-                case "10d":
-                    return "wi wi-day-rain";
-                case "11d":
-                    return "wi wi-day-thunderstorm";
-                case "13d":
-                    return "wi wi-day-snow";
-                case "50d":
-                    return "wi wi-fog";
-
-                case "01n":
-                    return "wi wi-night-clear";
-                case "02n":
-                    return "wi wi-night-alt-partly-cloudy";
-                case "03n":
-                    return "wi wi-night-alt-cloudy";
-                case "04n":
-                    return "wi wi-cloudy";
-                case "09n":
-                    return "wi wi-night-alt-rain-mix";
-                case "10n":
-                    return "wi wi-night-alt-rain";
-                case "11n":
-                    return "wi wi-night-alt-thunderstorm";
-                case "13n":
-                    return "wi wi-night-alt-snow";
-                case "50n":
-                    return "wi wi-fog";
-
-                default:
-                    return "wi-na";
-            }
-        }
-
-        function getWeather() {
-            fetch('https://api.openweathermap.org/data/2.5/weather?id=2797656&appid=1c69c5ca7aa5fc91df7b97a37ceec6d1')
-                .then(function(resp) { return resp.json() }) // Convert data to json
-                .then(function(data) {
-                    drawWeather(data);
-                })
-                .catch(function() {
-                    console.log('Error fetching openweather API data')
-                });
-
-        }
-
-        function drawWeather(d) {
-
-            document.getElementById('location').innerHTML = d.name;
-            document.getElementById('celsius').innerHTML = Math.round(parseFloat(d.main.temp) - 273.15);
-            document.getElementById('sunClouds').className = getWeatherType(d.weather[0].icon);
-            document.getElementById('humidity').innerHTML = d.main.humidity;
-            document.getElementById('pressure').innerHTML = d.main.pressure;
-            document.getElementById('wind').innerHTML = Math.round((d.wind.speed * 3600) / 1000) + 'km/h';
-
-            function transferUnixTime(time) {
-                var tempTime = new Date(time * 1000);
-                var timeString = tempTime.toUTCString();
-                return timeString.slice(-12, -7);
-            }
-
-            document.getElementById('sunUp').innerHTML = transferUnixTime(d.sys.sunrise);
-            document.getElementById('sunDown').innerHTML = transferUnixTime(d.sys.sunset);
-        }
-
-            function getForecast() {
-                fetch('https://api.openweathermap.org/data/2.5/forecast?id=2797656&appid=1c69c5ca7aa5fc91df7b97a37ceec6d1')
-                    .then(function (resp) {
-                        return resp.json()
-                    }) // Convert data to json
-                    .then(function (data) {
-                        drawForecast(data);
-                    })
-                    .catch(function () {
-                        console.log('Error fetching openweather forecast API data')
-                    });
-            }
-
-        function transferUnixDate(date) {
-            var tempDate = new Date(date * 1000);
-            var dateString = tempDate.toDateString();
-            return dateString.slice(-20, -12);
-        }
-
-            function drawForecast(f) {
-                document.getElementById('forecast_tomorrow_celsius').innerHTML = Math.round(parseFloat(f.list[5].main.temp) - 273.15);
-                document.getElementById('forecast_tomorrow_weather').className = getWeatherType(f.list[5].weather[0].icon);
-                document.getElementById('forecast_tomorrow_date').innerHTML = transferUnixDate(f.list[5].dt);
-                document.getElementById('forecast_dayafter_celsius').innerHTML = Math.round(parseFloat(f.list[12].main.temp) - 273.15);
-                document.getElementById('forecast_dayafter_weather').className = getWeatherType(f.list[12].weather[0].icon);
-                document.getElementById('forecast_dayafter_date').innerHTML = transferUnixDate(f.list[12].dt);
-        }
-        getWeather();
-        getForecast();
-
-
-
-            //xhr.open("GET", "https://api.openweathermap.org/data/2.5/weather?id=2797656&appid=1c69c5ca7aa5fc91df7b97a37ceec6d1");
-    </script>
     <div id="searchDiv">
         <form  id="searchForm" action="https://duckduckgo.com/?q=search" method="get">
             <input name="kl" type="hidden" value="be-nl"> <!--region-->
@@ -351,144 +43,143 @@
             <input autocomplete="off" name="q" id="searchInput" type="text" placeholder="DuckDuckGo">
         </form>
     </div>
-    <div class="left">
-        <div class="name">
-            <p>Social:</p>
-            <p>Mail</p>
-            <p>Google:</p>
-            <p>Media:</p>
-            <p>Shopping:</p>
-            <p>Banking:</p>
-            <p>News:</p>
-            <p>Reddit:</p>
-            <p>School:</p>
-            <p>Prog. Help:</p>
-            <p>Learning:</p>
-            <p>Local:</p>
-            <p>4 Chan:</p>
-            <p>Privacy:</p>
-            <p>Torrents:</p>
+    <div id="center">
+        <div class="block">
+            <h1>Social</h1>
+            <div class="hidden"><a href="https://www.facebook.com/">Facebook</a>
+                <a href="https://twitter.com/">Twitter</a>
+                <a href="https://www.meetup.com">Meetup</a></div>
+        </div>
+        <div class="block">
+            <h1>Local</h1>
+            <div class="hidden"><a href="http://192.168.0.25">OctoPi</a>
+                <a href="http://192.168.0.22:8112/">Deluge</a>
+                <a href="http://192.168.0.10/admin/index.php">PiHole</a>
+                <a href="https://192.168.0.15">Synology</a></div>
         </div>
 
-        <div class="links">
-            <p>
-                <a href="https://www.facebook.com/">Facebook</a><span class="streep">-</span>
-                <a href="https://twitter.com/">Twitter</a><span class="streep">-</span>
-                <a href="https://www.meetup.com">Meetup</a>
+        <div class="block">
+            <h1>Torrents</h1>
+            <div class="hidden"><a href="https://rarbgmirror.org">RarBG</a>
+                <a href="https://fitgirl-repacks.site/">FitGirl Repack</a>
+                <a href="https://snowfl.com/">Snowfl</a>
+                <a href="https://yts.ae/">YTS</a></div>
+        </div>
+        <div class="block">
+            <h1>News</h1>
+            <div class="hidden"><a href="https://nl.hardware.info/">HW.info</a>
+                <a href="https://tweakers.net/">Tweakers</a>
+                <a href="https://news.ycombinator.com/">Hacker News</a></div>
+        </div>
+        <div class="block_weather">
+            <div id="weather">
+                <div id="temperature">
+                    <span id="location"></span>
+                    <span id="celsius">00</span>
+                    <i class="wi wi-celsius"></i>
+                    <i id="sunClouds" class=""></i>
+                </div>
+                <div id="otherWeather">
+                    <i class="wi wi-humidity"></i>
+                    <span id="humidity"></span>
+                    <i class="wi wi-barometer"></i>
+                    <span id="pressure"></span>
+                    <i class="wi wi-tornado"></i>
+                    <span id="wind"></span>
+                </div>
+                <div id="sunrise">
+                    <span id="sunUp"></span>
+                    <i class="wi wi-sunrise"></i>
+                    <span id="sunDown"></span>
+                    <i class="wi wi-sunset"></i>
+                </div>
+                <div id="forecast">
+                    <div id="forecast_tomorrow">
+                        <span id="forecast_tomorrow_date">tomorrowDate</span>
+                        <span id="forecast_tomorrow_celsius">00</span>
+                        <i class="wi wi-celsius"></i>
+                        <i id="forecast_tomorrow_weather" class=""></i>
+                    </div>
+                    <div id="forecast_dayafter">
+                        <span id="forecast_dayafter_date">dayafterDate</span>
+                        <span id="forecast_dayafter_celsius">00</span>
+                        <i class="wi wi-celsius"></i>
+                        <i id="forecast_dayafter_weather" class=""></i>
+                    </div>
 
-            </p>
-            <p>
-                <a href="https://mail.google.com/mail/u/0/#inbox">Gmail</a><span class="streep">-</span>
-                <a href="https://outlook.live.com">Outlook</a><span class="streep">-</span>
-                <a href="https://mailfence.com/nl/">Mailfence</a>
-            </p>
-            <p>
-              <a href="https://www.google.com">Search</a><span class="streep">-</span>
-              <a href="https://www.google.be/maps">Maps</a><span class="streep">-</span>
-              <a href="https://translate.google.com/?hl=nl">Translate</a>
-            </p>
-            <p>
-              <a href="https://www.youtube.com/?hl=nl">Youtube</a><span class="streep">-</span>
-              <a href="https://www.netflix.com/browse">Netflix</a><span class="streep">-</span>
-              <a href="https://www.imdb.com/">IMDb</a>
-            </p>
-            <p>
-              <a href="https://www.amazon.de/?language=nl_NL">Amazon</a><span class="streep">-</span>
-              <a href="http://www.ibood.com/be/nl/">iBood</a><span class="streep">-</span>
-              <a href="https://nl.aliexpress.com/">Aliexpress</a>
-            </p>
-            <p>
-              <a href="https://www.belfius.be">Belfius</a><span class="streep">-</span>
-              <a href="https://www.keytradebank.be/">Keytrade</a><span class="streep">-</span>
-              <a href="https://secure.hellobank.be/nl/index-NL?axes1=nl">Hello Bank</a><span class="streep">-</span>
-              <a href="https://www.binance.com">Binance</a>
-            </p>
-            <p>
-                <a href="https://nl.hardware.info/">HW.info</a><span class="streep">-</span>
-                <a href="https://tweakers.net/">Tweakers</a><span class="streep">-</span>
-                <a href="https://news.ycombinator.com/">Hacker News</a>
-            </p>
-            <p>
-              <a href="https://www.reddit.com/r/ProgrammerHumor/">r/ProgHumor</a><span class="streep">-</span>
-              <a href="https://www.reddit.com/r/BattlefieldV/">r/BattlefieldV</a><span class="streep">-</span>
-              <a href="https://www.reddit.com">r/Frontpage</a>
-            </p>
-            <p>
-              <a href="https://ibamaflex.hogent.be/Main.aspx">iBaMaFlex!</a><span class="streep">-</span>
-                <a href="https://login365.hogent.be/">Schoolmail</a><span class="streep">-</span>
-              <a href="https://chamilo.hogent.be/">Chamilo</a>
-            </p>
-            <p>
-              <a href="https://github.com">Github</a><span class="streep">-</span>
-              <a href="https://stackoverflow.com/">Stackoverflow</a>
-            </p>
-            <p>
-              <a href="https://www.udemy.com/home/my-courses/learning/">Udemy</a><span class="streep">-</span>
-              <a href="https://www.pluralsight.com/">Pluralsight</a>
-            </p>
-          <p>
-            <a href="http://192.168.0.25">OctoPi</a><span class="streep">-</span>
-            <a href="http://192.168.0.22:8112/">Deluge</a><span class="streep">-</span>
-            <a href="http://192.168.0.10/admin/index.php">PiHole</a><span class="streep">-</span>
-            <a href="https://192.168.0.15">Synology</a>
-          </p>
-            <p>
-                <a href="https://boards.4chan.org/wg/">/wg</a><span class="streep">-</span>
-                <a href="https://boards.4channel.org/wsg/">/wsg</a><span class="streep">-</span>
-                <a href="https://boards.4channel.org/gif/">/gif</a><span class="streep">-</span>
-                <a href="https://boards.4chan.org/b/">/b</a><span class="streep">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <h1>Shopping</h1>
+            <div class="hidden" id="show_shopping"><a href="https://www.amazon.de/?language=nl_NL">Amazon</a>
+                <a href="http://www.ibood.com/be/nl/">iBood</a>
+                <a href="https://nl.aliexpress.com/">Aliexpress</a></div>
+        </div>
+
+        <div class="block">
+            <h1>School</h1>
+            <div class="hidden" id="show_school"><a href="https://ibamaflex.hogent.be/Main.aspx">iBaMaFlex!</a>
+                <a href="https://login365.hogent.be/">Schoolmail</a>
+                <a href="https://chamilo.hogent.be/">Chamilo</a></div>
+        </div>
+
+        <div class="block">
+            <h1>FSjen</h1>
+            <div class="hidden" id="show_fsjen">
                 <a href="https://boards.4channel.org/g/">/g</a>
-            </p>
-            <p>
-                <a href="https://privacytools.io">PrivacyTools</a><span class="streep">-</span>
-                <a href="https://www.reddit.com/r/privacy/">r/Privacy</a>
-            </p>
-            <p>
-                <a href="https://rarbgmirror.org">RarBG</a><span class="streep">-</span>
-                <a href="https://fitgirl-repacks.site/">FitGirl Repack</a><span class="streep">-</span>
-                <a href="https://www.torlock.com/">Torlock</a><span class="streep">-</span>
-                <a href="https://yts.ae/">YTS</a>
-            </p>
+                <a href="https://boards.4chan.org/wg/">/wg</a>
+                <a href="https://boards.4channel.org/wsg/">/wsg</a>
+                <a href="https://boards.4channel.org/gif/">/gif</a>
+            </div>
+        </div>
+        <div class="block">
+            <h1>Reddit</h1>
+            <div class="hidden" id="show_reddit"><a href="https://www.reddit.com/r/ProgrammerHumor/">r/ProgHumor</a>
+                <a href="https://www.reddit.com/r/BattlefieldV/">r/BattlefieldV</a>
+                <a href="https://www.reddit.com">r/Frontpage</a></div>
+        </div>
+        <div class="block">
+            <h1>Media</h1>
+            <div class="hidden" id="show_media">
+                <a href="https://www.youtube.com/?hl=nl">Youtube</a>
+                <a href="https://www.netflix.com/browse">Netflix</a>
+                <a href="https://www.imdb.com/">IMDb</a>
+            </div>
+        </div>
 
-          </div>
-    </div>
-    <div id="right">
-        <div id="weather">
-            <div id="temperature">
-                <span id="location"></span>
-                <span id="celsius">00</span>
-                <i class="wi wi-celsius"></i>
-                <i id="sunClouds" class=""></i>
-            </div>
-            <div id="otherWeather">
-                <i class="wi wi-humidity"></i>
-                <span id="humidity"></span>
-                <i class="wi wi-barometer"></i>
-                <span id="pressure"></span>
-                <i class="wi wi-tornado"></i>
-                <span id="wind"></span>
-            </div>
-            <div id="sunrise">
-                <span id="sunUp"></span>
-                <i class="wi wi-sunrise"></i>
-                <span id="sunDown"></span>
-                <i class="wi wi-sunset"></i>
-            </div>
-            <div id="forecast">
-                <div id="forecast_tomorrow">
-                    <p id="forecast_tomorrow_date">tomorrowDate</p>
-                    <span id="forecast_tomorrow_celsius">00</span>
-                    <i class="wi wi-celsius"></i>
-                    <i id="forecast_tomorrow_weather" class=""></i>
-                </div>
-                <div id="forecast_dayafter">
-                    <p id="forecast_dayafter_date">dayafterDate</p>
-                    <span id="forecast_dayafter_celsius">00</span>
-                    <i class="wi wi-celsius"></i>
-                    <i id="forecast_dayafter_weather" class=""></i>
-                </div>
-
-            </div>
+        <div class="block">
+            <h1>Coding</h1>
+            <div class="hidden" id="show_coding"><a href="https://github.com">Github</a>
+                <a href="https://stackoverflow.com/">Stackoverflow</a>
+                <a href="https://www.udemy.com/home/my-courses/learning/">Udemy</a>
+                <a href="https://www.pluralsight.com/">Pluralsight</a></div>
+        </div>
+        <div class="block">
+            <h1>Privacy</h1>
+            <div class="hidden" id="show_privacy"><a href="https://privacytools.io">PrivacyTools</a>
+                <a href="https://github.com/Igglybuff/awesome-piracy#readme">Awesome P</a>
+                <a href="https://www.reddit.com/r/privacy/">r/Privacy</a></div>
+        </div>
+        <div class="block">
+            <h1>Mail</h1>
+            <div class="hidden" id="show_mail"><a href="https://mail.google.com/mail/u/0/#inbox">Gmail</a>
+                <a href="https://outlook.live.com">Outlook</a>
+                <a href="https://mailfence.com/nl/">Mailfence</a></div>
+        </div>
+        <div class="block">
+        <h1>Google</h1>
+            <div class="hidden" id="show_google"><a href="https://www.google.com">Search</a>
+                <a href="https://www.google.be/maps">Maps</a>
+                <a href="https://translate.google.com/?hl=nl">Translate</a></div>
+        </div>
+        <div class="block">
+            <h1>Banking</h1>
+            <div class="hidden" id="show_banking"><a href="https://www.belfius.be">Belfius</a>
+                <a href="https://www.keytradebank.be/">Keytrade</a>
+                <a href="https://secure.hellobank.be/nl/index-NL?axes1=nl">Hello Bank</a>
+                <a href="https://www.binance.com">Binance</a></div>
         </div>
     </div>
 </body>
