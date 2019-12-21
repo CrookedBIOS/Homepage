@@ -181,6 +181,24 @@ $(document).ready(function() {
                 $(this).children('.hidden').fadeOut(500);
             }
         });
+
+        var $tempblock = $(".block_weather");
+
+        $tempblock.mouseenter(function () {
+                $(this).children('h1').animate({
+                    top: '20%',
+                    opacity: '0.5'
+                });
+                $(this).children('.hidden').fadeIn(400);
+        });
+
+        $tempblock.mouseleave(function () {
+                $(this).children('h1').animate({
+                    top: '40%',
+                    opacity: '1.0'
+                });
+                $(this).children('.hidden').fadeOut(500);
+        });
     });
 });
 
