@@ -10,9 +10,9 @@
     margin: 10px 3px;
 }
 
-#weather div:not(:first-of-type){
+/* #weather div:not(:first-of-type){
     opacity: 0.6;
-}
+} */
 
 #weather{
     margin: 10px;
@@ -68,6 +68,28 @@ body {
     background-attachment: fixed;
 }
 
+.block:hover h1{
+    top:20%;
+    opacity: 0.5;
+}
+
+.block:hover .hidden{
+    display: inline;
+}
+
+.block:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.block_weather:hover {
+    background-color: rgba(0,0,0,0.8);
+    opacity: 1;
+}
+
+.block_weather:hover #otherweather{
+    opacity: 1.0; 
+}
+
 #time {
     text-align: center;
     color: white;
@@ -98,7 +120,8 @@ body {
 
 @media only screen and (max-width: 1200px) {
     #center {
-        width: 700px;
+        width: 80%;
+        margin: auto;
     }
 
     #searchDiv {
