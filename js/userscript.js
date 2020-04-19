@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     function startTime() {
         var today = new Date();
-        today.setHours(today.getUTCHours() + 1);
+        today.setHours(today.getUTCHours() + 2);
         var h = today.getHours();
         var m = today.getMinutes();
         var s = today.getSeconds();
